@@ -16,10 +16,4 @@ add_library(project_warnings INTERFACE)
 target_compile_options(project_warnings INTERFACE
     -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
 
-add_subdirectory(src)
 add_subdirectory(app)
-
-include(CTest)
-if(BUILD_TESTING)
-    add_subdirectory(tests)
-endif()

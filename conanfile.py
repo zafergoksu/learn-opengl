@@ -6,8 +6,14 @@ class LearnOpenglConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "CMakeToolchain", "CMakeDeps"
 
+    def configure(self):
+        self.options["glad"].spec = "gl"
+        self.options["glad"].gl_profile = "core"
+        self.options["glad"].gl_version = "4.1"
+
     def requirements(self):
-        self.test_requires("gtest/1.17.0")
+        self.requires("glfw/3.4")
+        self.requires("glad/0.1.36")
 
     def layout(self):
         cmake_layout(self)
