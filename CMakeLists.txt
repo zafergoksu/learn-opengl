@@ -16,4 +16,9 @@ add_library(project_warnings INTERFACE)
 target_compile_options(project_warnings INTERFACE
     -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
 
+find_package(glfw3 CONFIG REQUIRED)
+find_package(glad CONFIG REQUIRED)
+find_package(spdlog CONFIG REQUIRED)
+
+add_subdirectory(src)
 add_subdirectory(app)

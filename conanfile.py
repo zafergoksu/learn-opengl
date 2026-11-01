@@ -9,7 +9,7 @@ class LearnOpenglConan(ConanFile):
     def configure(self):
         self.options["glad"].spec = "gl"
         self.options["glad"].gl_profile = "core"
-        self.options["glad"].gl_version = "4.1"
+        self.options["glad"].gl_version = "4.5"
         # Build both backends; glfwInit() picks one at runtime from the session.
         if self.settings.os == "Linux":
             self.options["glfw"].with_wayland = True
@@ -18,6 +18,7 @@ class LearnOpenglConan(ConanFile):
     def requirements(self):
         self.requires("glfw/3.4")
         self.requires("glad/0.1.36")
+        self.requires("spdlog/1.17.0")
 
     def layout(self):
         cmake_layout(self)
